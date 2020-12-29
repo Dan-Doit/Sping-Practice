@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="Test"> 
+	<insert id="insertDB" parameterType="String">
+	<!-- 반드시 변수의 값앞에 #{}을 이용해작성해야 오류가 나지않는다. -->
+		INSERT INTO TESTTABLE(COL1) VALUES(#{data1})
+	</insert>
+	
+	<select id="selectDB" resultType="String">
+			SELECT COL1 FROM TESTTABLE WHERE ROWNUM = 1
+	</select>
+	
+	<insert id="insertDB2" parameterType="test">
+		INSERT INTO TESTTABLE(COL1,COL2) VALUES(#{param1},#{param2})
+	</insert>
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
