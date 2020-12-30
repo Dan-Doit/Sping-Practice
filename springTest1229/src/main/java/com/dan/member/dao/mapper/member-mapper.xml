@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="Member"> 
+ 
+ 	<insert id="regMember" parameterType="member">
+ 		INSERT INTO SMEMBER 
+ 		VALUES (#{mid},#{mpwd},#{mname},#{mphone},#{memail},#{mbirth})
+ 	</insert>
+ 	
+ 	<select id="isAccess" parameterType="member" resultType="member">
+ 		SELECT MID FROM SMEMBER 
+ 		WHERE 1=1
+ 		AND MID = #{mid} 
+ 		AND MPWD = #{mpwd} 
+ 		AND ROWNUM = 1
+ 	</select>
+ 	
+ 	<select id="Access" parameterType="member" resultType="int">
+ 		SELECT COUNT(*) FROM SMEMBER 
+ 		WHERE 1=1
+ 		AND MID = #{mid} 
+ 		AND MPWD = #{mpwd} 
+ 	</select>
+ 	
+ 	<select id="members" parameterType="member" resultType="member">
+ 		SELECT * FROM SMEMBER
+ 	</select>
+ 	
+ 	<select id="getUser" parameterType="String" resultType="member">
+ 		SELECT * FROM SMEMBER WHERE MID = #{uid}
+ 	</select>
+ 	
+ 	<delete id="delUser" parameterType="String">
+ 		DELETE FROM SMEMBER WHERE MID = #{uid}
+ 	</delete>
+ 	
+ 	<update id="modUser" parameterType="member">
+ 		UPDATE SMEMBER SET 
+ 		MPWD=#{mpwd} , MNAME=#{mname}, MPHONE=#{mphone}, MEMAIL=#{memail}, MBIRTH=#{mbirth} 
+ 		WHERE MID=#{mid}
+ 		
+ 		<selectKey>
+ 		</selectKey>
+ 	</update>
+
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
