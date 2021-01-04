@@ -2,6 +2,7 @@ package com.dan.member.Service;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpSession;
 
@@ -64,19 +65,20 @@ public class MemberService {
 
 		List<DataTranseformObject> memberList;
 
-		memberList = dao.getMembers(); 
-
+		memberList = dao.getMembers();
+		
 		memberList.sort(new Comparator<DataTranseformObject>() {
 
 			@Override
 			public int compare(DataTranseformObject o1, DataTranseformObject o2) {
-
-				if(o2.getMid().equals("ADMIN"))return 1;
-				else if (o1.getMid().equals("ADMIN"))return -1;
-				else return Integer.parseInt(o1.getMid()) - Integer.parseInt(o2.getMid());
-
+                boolean a = Pattern.matches("^[0-9]*$", o1.getMid());
+                boolean b = Pattern.matches("^[0-9]*$", o2.getMid());
+         
+                if(!a) return -1;
+                else if (!b) return 0;
+                else return Integer.parseInt(o1.getMid()) - Integer.parseInt(o2.getMid()); 
+				
 			}
-
 		});
 
 		mav.addObject("memberList", memberList);
@@ -125,6 +127,26 @@ public class MemberService {
 			mav.setViewName("redirect:/members");
 		
 		return mav;
+	}
+
+	public String checkUser(String mid) {
+		
+		mav = new ModelAndView();
+
+		String data = null;
+		if(dao.checkUser(mid) > 0) {
+			data = "notinto";
+		}else {
+			data = "into";
+		}
+		
+		return data;
+		
+	}
+	
+	public DataTranseformObject getUserAjax(String mid) {
+		
+		return dao.getUserAjax(mid);
 	}
 
 }

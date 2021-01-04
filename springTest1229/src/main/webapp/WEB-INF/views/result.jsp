@@ -14,6 +14,9 @@
 	<c:if test="${sessionScope.mid eq 'ADMIN'}" >
 	<a href="members">회원 목록보기</a>
 	</c:if>
+	<c:if test="${sessionScope.mid ne null}" >
+	<a href="logout">로그아웃하기</a>
+	</c:if>
 	
 </body>
 </html>

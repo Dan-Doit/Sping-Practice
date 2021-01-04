@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dan.member.Service.MemberService;
@@ -26,6 +29,9 @@ public class HomeController {
 	
 	@Autowired
 	private MemberService ms;
+	
+	@Autowired
+	private HttpSession ss;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -106,5 +112,25 @@ public class HomeController {
 			mav = ms.modUser(dto);
 
 		return mav;
+	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(@RequestParam("uid") String uid) {
+			
+			ss.invalidate();
+		
+		return "home";
+	}
+	
+	@RequestMapping(value = "/checkid", method = RequestMethod.POST)
+	public @ResponseBody String checkid(@RequestParam("mid") String mid) {
+
+		return ms.checkUser(mid);
+	}
+	
+	@RequestMapping(value = "/getUserAjax", method = RequestMethod.POST)
+	public @ResponseBody DataTranseformObject getUserAjax(@RequestParam("mid") String mid) {
+
+		return ms.getUserAjax(mid);
 	}
 }

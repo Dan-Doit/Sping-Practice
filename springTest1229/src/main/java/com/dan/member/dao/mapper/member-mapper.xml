@@ -41,9 +41,20 @@
  		MPWD=#{mpwd} , MNAME=#{mname}, MPHONE=#{mphone}, MEMAIL=#{memail}, MBIRTH=#{mbirth} 
  		WHERE MID=#{mid}
  		
- 		<selectKey>
+ 		<selectKey resultType="member" keyProperty="mid,mpwd,mname,mphone,memail,mbirth" order="AFTER">
+ 			SELECT * FROM SMEMBER
+ 			WHERE 1=1
+ 			AND MID = #{mid}
  		</selectKey>
  	</update>
+ 	
+ 	 <select id="checkUser" parameterType="String" resultType="int">
+ 		SELECT COUNT(*) FROM SMEMBER WHERE MID = #{mid}
+ 	</select>
+ 	
+ 	<select id="getUserAjax" parameterType="String" resultType="member">
+ 		SELECT * FROM SMEMBER WHERE MID = #{mid}
+ 	</select>
 
  </mapper>
  

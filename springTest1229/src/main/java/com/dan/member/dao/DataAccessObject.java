@@ -10,38 +10,38 @@ import com.dan.member.dto.DataTranseformObject;
 
 @Repository
 public class DataAccessObject {
-	
+
 	@Autowired
 	private SqlSessionTemplate sql;
 
 	public int regMember(DataTranseformObject dto) {
-	
+
 		int result = sql.insert("Member.regMember", dto);
-		
+
 		return result;
 	}
-	
+
 	public int Access(DataTranseformObject dto) {
-		
+
 		int result = sql.selectOne("Member.Access", dto);
 		return result;
-		
+
 	}
 
 	public DataTranseformObject Gologin(DataTranseformObject dto) {
-		
+
 		return sql.selectOne("Member.isAccess", dto);
-		
+
 	}
 
 	public List<DataTranseformObject> getMembers() {
-		
+
 		return sql.selectList("Member.members");
-		
+
 	}
 
 	public DataTranseformObject getUser(String uid) {
-		
+
 		return sql.selectOne("Member.getUser", uid);
 	}
 
@@ -50,9 +50,21 @@ public class DataAccessObject {
 		return sql.delete("Member.delUser",uid);
 	}
 
-	public int modUser(DataTranseformObject dto) {
+	public DataTranseformObject modUser(DataTranseformObject dto) {
+
+			sql.update("Member.modUser",dto);
+
+		return dto; 
+	}
+
+	public int checkUser(String mid) {
 		
-		return sql.update("Member.modUser",dto); 
+		return sql.selectOne("Member.checkUser",mid);
+	}
+
+	public DataTranseformObject getUserAjax(String mid) {
+		
+		return sql.selectOne("Member.getUserAjax",mid);
 	}
 
 }
