@@ -4,5 +4,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="board-bean" type="com.dan.board.dto.DataTransferObject"/>
+		<typeAlias alias="page-bean" type="com.dan.board.dto.PageTransferObject"/>
 	</typeAliases>
+	
 </configuration>

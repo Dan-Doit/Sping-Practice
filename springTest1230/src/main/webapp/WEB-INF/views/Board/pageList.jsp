@@ -40,7 +40,7 @@ body {
 		<c:forEach var="i" items="${list}">
 			<tr>
 				<td>${i.bnum}</td>
-				<td><a href="getBoard?bnum=${i.bnum}">${i.btitle}</a></td>
+				<td><a href="getBoard?bnum=${i.bnum}&page=${paging.page}">${i.btitle}</a></td>
 				<td>${i.bwriter}</td>
 				<td>${i.bhits}</td>
 				<td><a href="getModBoard?bnum=${i.bnum}">수정</a></td>
@@ -48,6 +48,36 @@ body {
 			</tr>
 		</c:forEach>
 	</table>
+	
+	<!-- 페이징 처리 -->
+	<c:if test="${paging.page<=1}">
+	[이전]&nbsp;
+	</c:if>
+	
+	<c:if test="${paging.page>1}">
+		<a href="Bpagelist?page=${paging.page-1}">[이전]</a>&nbsp;
+	</c:if>
+	
+	<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="i" step="1">
+		<c:choose>
+			<c:when test="${i eq paging.page}">
+			${i}
+			</c:when>
+			<c:otherwise>
+				<a href="Bpagelist?page=${i}">${i}</a>
+			</c:otherwise>
+		</c:choose>
+	</c:forEach>
+
+	<c:if test="${paging.page>=paging.maxPage}">
+		[다음]
+	</c:if>
+	
+	<c:if test="${paging.page<paging.maxPage}">
+		<a href="Bpagelist?page=${paging.page+1}">[다음]</a>
+	</c:if>
+	
+	<br>
 	<a href="./">홈으로가기</a>
 </body>
 </html>

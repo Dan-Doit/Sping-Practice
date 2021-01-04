@@ -5,7 +5,7 @@
  <mapper namespace="Board"> 
  
  	<insert id="regBoard" parameterType="board-bean">
- 		INSERT INTO BOARDTABLE VALUES(DANNUM.NEXTVAL,#{bwriter},#{bpwd},#{btitle},#{bcontents},SYSDATE,0)
+ 		INSERT INTO BOARDTABLE VALUES(DANNUM.NEXTVAL,#{bwriter},#{bpwd},#{btitle},#{bcontents},SYSDATE,0,#{bfilename})
  	</insert>
 	<select id="getBoardList" resultType="board-bean">
 		SELECT * FROM BOARDTABLE
@@ -13,10 +13,40 @@
 	
 	<update id="getBoard" parameterType="board-bean">
 		UPDATE BOARDTABLE SET BHITS = BHITS+1 WHERE BNUM = #{bnum}
-		<selectKey order="AFTER" keyProperty="bnum,bwriter,bpwd,btitle,bcontents,bdate,bhits" resultType="board-bean">
+		<selectKey order="AFTER" keyProperty="bnum,bwriter,bpwd,btitle,bcontents,bdate,bhits,bfilename" resultType="board-bean">
 			SELECT * FROM BOARDTABLE WHERE BNUM = #{bnum}
 		</selectKey>
 	</update>
+	
+	<select id="getModBoard" parameterType="String" resultType="board-bean">
+		SELECT * FROM BOARDTABLE WHERE BNUM =#{bnum}
+	</select>
+	
+	<update id="modBoard" parameterType="board-bean">
+		UPDATE BOARDTABLE SET BTITLE = #{btitle}, BCONTENTS=#{bcontents} WHERE BNUM = #{bnum}
+	</update>
+	
+	<delete id="delBoard" parameterType="String">
+		DELETE FROM BOARDTABLE WHERE BNUM = #{bnum} 
+	</delete>
+	
+	<insert id="insReply" parameterType="board-bean">
+		INSERT INTO BOARDREPLY VALUES (#{bnum},#{breply})
+	</insert>
+		
+	<select id="getReply" parameterType="board-bean" resultType="board-bean">
+		SELECT * FROM BOARDREPLY WHERE BO_BNUM = #{bnum}
+	</select>
+	
+	<select id="countList" resultType="int">
+		SELECT COUNT(*) FROM BOARDTABLE
+	</select>
+	
+	<select id="getPageList" parameterType="page-bean" resultType="board-bean">
+		SELECT * FROM (SELECT B.*, ROW_NUMBER() OVER(ORDER BY BDATE DESC)
+			AS RN FROM BOARDTABLE B) WHERE RN BETWEEN #{startRow} AND #{endRow}
+
+	</select>
  </mapper>
  
  

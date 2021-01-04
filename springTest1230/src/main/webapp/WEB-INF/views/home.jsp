@@ -13,5 +13,6 @@
 
 <a href="Bwrite">글쓰러가기</a>
 <a href="Blist">글목록보기</a>
+<a href="Bpagelist">페이징 목록보기</a>
 </body>
 </html>

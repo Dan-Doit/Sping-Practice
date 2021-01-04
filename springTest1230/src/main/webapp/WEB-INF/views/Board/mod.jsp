@@ -21,31 +21,22 @@ body {
 }
 </style>
 <body>
-	<form action="regBoard" method="post" enctype="multipart/form-data">
+	<form action="modBoard" method="post">
 		<table>
 			<tr>
 				<td>제목</td>
-				<td><input type="text" name="btitle"></td>
+				<td><input type="text" name="btitle" placeholder="${board.btitle}"></td>
 			</tr>
 			<tr>
-				<td>작성자</td>
-				<td><input type="text" name="bwriter"></td>
+				<td>글번호</td>
+				<td><input type="text" name="bnum" placeholder="${board.bnum}" readonly value="${board.bnum}"></td>
 			</tr>
 			<tr>
-				<td>글비밀번호</td>
-				<td><input type="password" name="bpwd"></td>
-			</tr>
-			<tr>
-            	<td>파일</td>
-            	<td><input type="file" name="bfile"></td>
-         	</tr>
-			
-			<tr>
-				<td colspan="2" style="padding: 0"><textarea rows="15" cols="40" style="resize: none;" name="bcontents"></textarea></td>
+				<td colspan="2" style="padding: 0"><textarea rows="15" cols="40" style="resize: none;" name="bcontents" placeholder="${board.bcontents}"></textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2">
-					<button style="width: 100px; height: 40px">글 작성</button>
+					<button style="width: 100px; height: 40px">글 수정</button>
 				</td>
 			</tr>
 		</table>
