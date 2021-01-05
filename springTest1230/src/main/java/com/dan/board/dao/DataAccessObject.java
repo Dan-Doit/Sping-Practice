@@ -1,6 +1,8 @@
 package com.dan.board.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,4 +73,32 @@ public class DataAccessObject {
 		return sql.selectList("Board.getPageList",paging);
 	}
 
+	public List<DataTransferObject> search(String searchtype, String keyword) {
+		
+			Map<String, String> searchMap = new HashMap<String,String>();
+			
+			searchMap.put("type", searchtype);
+			searchMap.put("word", keyword);
+			
+		return sql.selectList("Board.search",searchMap);
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

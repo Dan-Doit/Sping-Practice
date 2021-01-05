@@ -125,4 +125,35 @@ public class HomeController {
 	}
 	
 	
+	// 검색 처리
+	@RequestMapping(value="/search")
+	public ModelAndView search(@RequestParam("searchtype") String searchtype,
+							   @RequestParam("keyword") String keyword) {
+								
+		mav = bs.search(searchtype,keyword);
+		
+		return mav;
+	}
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -45,8 +45,13 @@
 	<select id="getPageList" parameterType="page-bean" resultType="board-bean">
 		SELECT * FROM (SELECT B.*, ROW_NUMBER() OVER(ORDER BY BDATE DESC)
 			AS RN FROM BOARDTABLE B) WHERE RN BETWEEN #{startRow} AND #{endRow}
-
 	</select>
+	
+	<select id="search" parameterType="java.util.HashMap" resultType="board-bean">
+		SELECT * FROM BOARDTABLE WHERE ${type} LIKE '%'||#{word}||'%'
+	</select>
+	
+	
  </mapper>
  
  

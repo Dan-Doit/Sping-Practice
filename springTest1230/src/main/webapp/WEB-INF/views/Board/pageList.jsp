@@ -21,6 +21,15 @@ body {
 </style>
 </head>
 <body>
+	<form action="search" method="post" name="search">
+	
+		<select name="searchtype">
+		 	<option value="BTITLE">제목</option>
+		 	<option value="BWRITER">작성자</option>
+		</select>
+		<input type="text" name="keyword" placeholder="검색..">
+		<input type="submit" value="검색">
+	</form>
 	<table>
 		<colgroup>
 			<col width="100px">

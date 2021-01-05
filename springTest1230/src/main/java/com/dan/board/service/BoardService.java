@@ -32,9 +32,7 @@ public class BoardService {
 		bfilename = System.currentTimeMillis() + "_" + bfilename;
 		// 저장 경로 입력 + (내 파일이름)
 		String savePath = "C:\\Users\\zmffh\\OneDrive\\Desktop\\Spring\\springTest1230\\src\\main\\webapp\\resources\\upload\\"+bfilename;
-			
-		System.out.println(bfilename);
-		
+					
 		if(!bfile.isEmpty()) {
 			// throws 로 바로 에러처리
 			bfile.transferTo(new File(savePath));
@@ -120,7 +118,6 @@ public class BoardService {
 	// 페이징 처리용 상수 선언
 	private static final int PAGE_LIMIT = 5; // 한 페이지에 보여질 글 갯수
 	private static final int BLOCK_LIMIT = 5; // 한 화면에 보여질 페이지 숫자 갯수
-
 	
 	public ModelAndView getPageList(int page) {
 		
@@ -155,8 +152,18 @@ public class BoardService {
 		
 		return mav;
 	}
-	
-	// 페이징 처리
+
+	public ModelAndView search(String searchtype, String keyword) {
+		
+		mav =  new ModelAndView();
+		List<DataTransferObject> searchList = dao.search(searchtype,keyword);
+		
+		mav.addObject("list",searchList);
+		mav.setViewName("Board/pageList");
+		
+		return mav;
+	}
+
 	
 	
 
