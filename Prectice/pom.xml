@@ -73,14 +73,12 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
 
-		<!-- javax.servlet-api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>

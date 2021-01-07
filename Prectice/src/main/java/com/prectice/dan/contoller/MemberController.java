@@ -26,6 +26,7 @@ public class MemberController {
 	
 	@RequestMapping(value = "/goRegMember", method = RequestMethod.GET)
 	public String goRegMember(Locale locale, Model model) {
+		
 		return "member/regMember";
 	}
 	
@@ -39,7 +40,7 @@ public class MemberController {
 	// 회원 등록
 	@RequestMapping(value = "/regMember", method = RequestMethod.POST)
 	public @ResponseBody int regMember(@ModelAttribute MemberBean mmb) throws IllegalStateException, IOException {
-		System.out.println(mmb);
+
 		return ms.regMember(mmb);
 	}
 	
