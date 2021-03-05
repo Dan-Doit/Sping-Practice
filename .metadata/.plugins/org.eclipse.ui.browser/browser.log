@@ -1,0 +1,31 @@
+
+12월 29, 2020 14:30:07.566 NEW SESSION
+12월 29, 2020 14:30:07.566 [9204:4776:1229/143007.564:ERROR:device_event_log_impl.cc(211)] [14:30:07.564] USB: usb_device_handle_win.cc:1020 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+12월 29, 2020 14:40:01.135 [1229/144001.135:ERROR:directory_reader_win.cc(43)] FindFirstFile: 지정된 경로를 찾을 수 없습니다. (0x3)
+
+12월 30, 2020 09:04:20.338 NEW SESSION
+12월 30, 2020 09:04:20.338 [5008:1464:1230/090420.336:ERROR:device_event_log_impl.cc(211)] [09:04:20.336] USB: usb_device_handle_win.cc:1020 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+12월 30, 2020 09:14:15.877 [1230/091415.876:ERROR:directory_reader_win.cc(43)] FindFirstFile: 지정된 경로를 찾을 수 없습니다. (0x3)
+
+1월 06, 2021 15:02:39.355 NEW SESSION
+1월 06, 2021 15:02:39.355 [8984:14044:0106/150239.351:ERROR:device_event_log_impl.cc(211)] [15:02:39.352] USB: usb_device_handle_win.cc:1020 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+1월 06, 2021 15:03:55.552 [3196:1728:0106/150355.552:ERROR:device_event_log_impl.cc(211)] [15:03:55.552] USB: usb_device_handle_win.cc:1020 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+1월 06, 2021 15:13:50.139 [0106/151350.138:ERROR:directory_reader_win.cc(43)] FindFirstFile: 지정된 경로를 찾을 수 없습니다. (0x3)
+1월 06, 2021 16:04:34.721 [3196:3940:0106/160434.721:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -118
+1월 06, 2021 19:30:51.217 [3196:3940:0106/193051.203:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -118
+1월 06, 2021 19:31:37.708 [3196:3940:0106/193137.708:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -118
+1월 06, 2021 19:31:43.150 [3196:3940:0106/193143.150:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+1월 06, 2021 19:32:45.711 [3196:3940:0106/193245.711:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -118
+1월 06, 2021 19:32:54.894 [3196:3940:0106/193254.893:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+1월 06, 2021 19:32:57.96 [3196:3940:0106/193257.096:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+1월 06, 2021 19:34:28.247 [3196:3940:0106/193428.246:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+1월 06, 2021 19:37:09.229 [3196:3940:0106/193709.229:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+1월 06, 2021 19:42:59.728 [3196:3940:0106/194259.728:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -118
+1월 06, 2021 19:43:54.570 [3196:3940:0106/194354.570:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+1월 06, 2021 19:44:46.174 [3196:3940:0106/194446.174:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+1월 06, 2021 23:00:18.210 [3196:3940:0106/230018.198:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -118
+
+1월 10, 2021 09:11:20.457 NEW SESSION
+1월 10, 2021 09:11:20.458 [16528:13832:0110/091120.447:ERROR:device_event_log_impl.cc(211)] [09:11:20.447] USB: usb_device_handle_win.cc:1020 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+1월 10, 2021 09:24:13.267 [18124:14512:0110/092413.267:ERROR:device_event_log_impl.cc(211)] [09:24:13.267] USB: usb_device_handle_win.cc:1020 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+1월 10, 2021 09:34:03.523 [0110/093403.521:ERROR:directory_reader_win.cc(43)] FindFirstFile: 지정된 경로를 찾을 수 없습니다. (0x3)

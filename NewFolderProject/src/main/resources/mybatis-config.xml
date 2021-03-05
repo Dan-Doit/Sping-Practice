@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="total" type="com.newfolder.project.dto.TotalDTO"/>
+		<typeAlias alias="board" type="com.newfolder.project.dto.BoardDTO"/>
+		<typeAlias alias="event" type="com.newfolder.project.dto.EventDTO"/>
+		<typeAlias alias="food" type="com.newfolder.project.dto.FoodDTO"/>
+		<typeAlias alias="page" type="com.newfolder.project.dto.PageDTO"/>
+		<typeAlias alias="store" type="com.newfolder.project.dto.StoreDTO"/>
+		<typeAlias alias="user" type="com.newfolder.project.dto.UserDTO"/>
+	</typeAliases>
+</configuration>

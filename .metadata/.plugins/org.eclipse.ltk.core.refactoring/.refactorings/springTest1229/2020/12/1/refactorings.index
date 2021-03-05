@@ -1,0 +1,5 @@
+1609218730386	Move 'mybatis-config.xml' to 'resources'
+1609219506514	Delete element
+1609220263676	Rename package 'com.dan.member.Dto'
+1609220396046	Delete element
+1609220451375	Rename package 'com.dan.member.Dao'

@@ -1,0 +1,18 @@
+package com.newfolder.project.dto;
+
+import lombok.Data;
+
+@Data
+public class BoardDTO {
+	private int CO_NUM;
+	private String CO_MEID;
+	private String Password;
+	private String CO_TITLE;
+	private String CO_COMMENT;
+	private String CO_DATE;
+	private int Thumbs;
+	private String CO_FILE;
+	private String RE_MEID;
+	private String RE_REPLY;
+	private String RE_COMEID;
+}

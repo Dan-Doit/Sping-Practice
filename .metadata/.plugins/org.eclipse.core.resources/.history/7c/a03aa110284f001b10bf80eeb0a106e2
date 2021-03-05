@@ -1,0 +1,68 @@
+package com.dan.board.controller;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.multipart.MultipartFile;
+
+import lombok.extern.slf4j.Slf4j;
+
+@RunWith(SpringJUnit4ClassRunner.class)// junit 사용 어노테이션
+@WebAppConfiguration // web 관련 어노테이션
+@ContextConfiguration(locations = // 설정파일 경로 어노테이션
+{"file:src/main/webapp/WEB-INF/spring/**/*.xml"})
+//log 를 사용하기 위한 어노테이션
+@Slf4j 
+public class BoardControllerTest {
+	@Autowired
+	private WebApplicationContext wac;
+	private MockMvc mock;
+	// MockMvc는  서블릿과 동일하게 동작함.
+	// mock 객체를 만들어 주기 위해 
+	
+	@Before
+	public void setup() {
+		System.out.println("setup 메소드 호출");
+		this.mock = 
+				MockMvcBuilders.webAppContextSetup(wac).build();
+	}
+	
+	@Test // 테스트 작업
+	@Transactional // DB 작업
+	@Rollback(true) // 롤백할지 안할지
+	public void boardWriteTest() throws Exception {
+		
+		MockMultipartFile bfile = new MockMultipartFile("bfile", "hello.txt",
+		        MediaType.TEXT_PLAIN_VALUE, 
+		        "Hello, World!".getBytes());
+		System.out.println("글쓰기 테스트 호출 ");
+		log.info("글쓰기 테스트");
+				// get post 와 메서드의 주소 바꿀것 
+		log.info(mock.perform(MockMvcRequestBuilders.post("/regBoard")
+				// DTO와 데이터 형식을 맞출것
+			.param("bwriter", "testwriter1")
+			.param("bpwd", "testpassword1")
+			.param("btitle", "testtitle1")
+			.param("bcontents", "testcontents1")
+			.param("bfilename","null")
+			.param("bfile","null"))
+			.andReturn().getModelAndView().getViewName());
+		System.out.println("글쓰기 테스트 호출 종료");
+	}
+	
+	
+	
+	
+}
